@@ -54,6 +54,7 @@ const Game = class {
     // METRIC ALTERATION METHODS
     reduceBeer() {
         newGame.beer--;
+        console.log(newGame.beer);
     }
 
     reduceChops() {
@@ -67,16 +68,16 @@ const Game = class {
 
     // // BUTTON METHODS
     drink() {
-        // this.beer += 1;
-        console.log(this.beer);
+        newGame.beer++;
+        console.log(newGame.beer);
     }
 
-    pratice() {
-        this.practice++;
+    practice() {
+        newGame.chops++;
     }
 
     trash() {
-        this.trash--;
+        newGame.crank -= 5;
     }
 
 
@@ -86,6 +87,15 @@ const Game = class {
 
 
 const newGame = new Game("tom", "33");
+
+$('#drink').on('click', newGame.drink);
+$('#practice').on('click', newGame.practice);
+$('#trash').on('click', newGame.trash);
+
+
+
+
+
 
 
 
