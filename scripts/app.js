@@ -2,9 +2,11 @@ console.log("[app.js] is loaded");
 
 /*
 Step 1.
-    create the game object
+    create the game class and game object
 Step 2.
     write in the button methods
+        - 
+
 Step 3.
     write in the timer methods
 Step 4.
@@ -37,7 +39,6 @@ const Game = class {
     beerCounter() {
         this.beerTimer = setInterval(this.reduceBeer, 1000);
     }
-
     chopsCounter() {
         this.chopsTimer = setInterval(this.reduceChops, 1000);
 
@@ -53,8 +54,13 @@ const Game = class {
 
     // METRIC ALTERATION METHODS
     reduceBeer() {
-        newGame.beer--;
-        console.log(newGame.beer);
+        if (newGame.beer === 0) {
+            clearInterval(newGame.beerCounter);
+        }
+        else {
+            newGame.beer--;
+            console.log(newGame.beer);
+        }
     }
 
     reduceChops() {
@@ -84,7 +90,9 @@ const Game = class {
         newGame.crank -= 5;
     }
 
-
+    quit() {
+        console.log(`${this.name} quit the band`);
+    }
 }
 
 
