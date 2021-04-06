@@ -56,42 +56,55 @@ const Game = class {
     reduceBeer() {
         if (newGame.beer === 0) {
             clearInterval(newGame.beerCounter);
-        }
-        else {
+        } else {
             newGame.beer--;
             console.log(newGame.beer);
         }
     }
 
     reduceChops() {
-        newGame.chops--;
+        if (newGame.chops === 0) {
+            clearInterval(newGame.chopsCounter);
+        } else {
+            newGame.chops--;
+        }
     }
 
     increaseCrank() {
-        newGame.crank += 3;
-        console.log(newGame.crank);
+        if (newGame.crank === 10) {
+            clearInterval(newGame.crankCounter);
+        } else {
+            newGame.crank += 3;
+            console.log(newGame.crank);
+        }
     }
 
     increaseAge() {
         newGame.age++;
         console.log(newGame.age);
     }
+
     // // BUTTON METHODS
     drink() {
-        newGame.beer++;
-        console.log(newGame.beer);
+        if (newGame.beer < 10) {
+            newGame.beer++;
+            console.log(newGame.beer);
+        }
     }
 
     practice() {
-        newGame.chops++;
+        if (newGame.chops < 10) {
+            newGame.chops++;
+        }
     }
 
     trash() {
-        newGame.crank -= 5;
+        if (newGame.crank > 0) {
+            newGame.crank = 0;
+        }
     }
-
     quit() {
-        console.log(`${this.name} quit the band`);
+        console.log(`${newGame.name} quit the band`);
     }
 }
 
