@@ -48,7 +48,7 @@ const Game = class {
     }
 
     ageCounter() {
-
+        this.ageTimer = setInterval(this.increaseAge, 5000);
     }
 
     // METRIC ALTERATION METHODS
@@ -66,6 +66,10 @@ const Game = class {
         console.log(newGame.crank);
     }
 
+    increaseAge() {
+        newGame.age++;
+        console.log(newGame.age);
+    }
     // // BUTTON METHODS
     drink() {
         newGame.beer++;
