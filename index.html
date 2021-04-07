@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/98mprice/PSone.css@master/PSone.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -17,25 +18,37 @@
 
 <body>
     <header class="header">
-        <div class="header left"></div>
+        <div class="header left">
+            Name:
+        </div>
         <div class="header middle"></div>
         <div class="header right">
-
+            Age:
         </div>
     </header>
     <main class="maingame">
+        <section class="gamearea rage">
+            <div class="progress error">
+                <div class="bar" style="width: 80%"></div>
+                <div class="subtitle">Default</div>
+            </div>
+        </section>
         <section class="gamearea beer">
-
+            <div class="progress error">
+                <div class="bar" style="width: 80%"></div>
+                <div class="subtitle">Default</div>
+            </div>
         </section>
         <section class="gamearea chops">
-
+            <div class="progress warning">
+                <div class="bar" style="width: 80%"></div>
+                <div class="subtitle">Default</div>
+            </div>
         </section>
         <section class="gamearea avatar">
             <img src="metalguy.png" alt="" class="avatar">
         </section>
-        <section class="gamearea rage">
 
-        </section>
     </main>
     <footer class="footer">
         <section class="footer beer">
@@ -45,11 +58,12 @@
 
         </section>
         <section class="footer center">
-
         </section>
         <section class="footer rage">
 
         </section>
+
+
     </footer>
 </body>
 

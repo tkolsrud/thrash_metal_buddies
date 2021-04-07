@@ -7,7 +7,7 @@
 body{
     min-height: 100vh;
     width: 100%;
-    background-color: rgb(26, 24, 24);
+    background-color:  #221316;
     /* display:inline-block; */
 }
 
@@ -20,10 +20,11 @@ header {
 }
 
 .maingame {
-    height: 500px;
+    height: 700px;
     width: 100%;
     display: flex;
-    background-image: url("https://wallpapercave.com/wp/wp2197207.jpg");
+    flex-direction: column;
+    background-image: url("http://pavbca.com/walldb/original/f/7/c/51709.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -99,11 +100,10 @@ footer .rage {
 }
 
 .avatar {
-    max-height: 300px;
+    max-height: 400px;
     height: auto;
-    max-width: 400px;
     width: auto;
-    justify-self: center;
-    align-self: flex-end;
+    justify-self: flex-end;
+    align-self: center;
     
 }
