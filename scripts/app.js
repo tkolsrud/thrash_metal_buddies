@@ -19,8 +19,8 @@ const Game = class {
         this.age = age;
 
         this.time = 0;
-        this.beer = 10;
-        this.chops = 10;
+        this.beer = 100;
+        this.chops = 100;
         this.crank = 0;
     }
 
@@ -29,7 +29,6 @@ const Game = class {
     chopsTimer = null
     crankTimer = null
     ageTimer = null
-
 
     // TIMER METHODS
     beerCounter() {
@@ -53,10 +52,10 @@ const Game = class {
         if (newGame.beer === 0) {
             clearInterval(newGame.beerCounter);
         } else {
-            newGame.beer--;
-            console.log(newGame.beer);
+            newGame.beer -= 10;
         }
     }
+
 
     reduceChops() {
         if (newGame.chops === 0) {
@@ -82,9 +81,9 @@ const Game = class {
 
     // // BUTTON METHODS
     drink() {
-        if (newGame.beer < 10) {
-            newGame.beer++;
-            console.log(newGame.beer);
+        if (newGame.beer < 100) {
+            newGame.beer += 10;
+
         }
     }
 
@@ -119,7 +118,12 @@ $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
 
+const beerBar = function beerBar() {
+    return $('#beer__bar').css(`width`, `${newGame.beer}%`);
+}
 
+
+setInterval(beerBar, 100);
 
 
 
