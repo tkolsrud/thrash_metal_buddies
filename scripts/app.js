@@ -30,10 +30,6 @@ const Game = class {
     crankTimer = null
     ageTimer = null
 
-    echo() {
-        console.log("echo");
-    }
-
 
     // TIMER METHODS
     beerCounter() {
@@ -103,20 +99,25 @@ const Game = class {
             newGame.crank = 0;
         }
     }
+
+    // This will probably end up being part of a conditional that all the other methods are nested into. When the user enters their name and age it could call said method
     quit() {
-        console.log(`${newGame.name} quit the band`);
+        if (this.beer === 0 || this.chops === 0 || this.crank === 10) {
+            console.log(`${newGame.name} quit the band`);
+        }
     }
 }
 
+const $canSound = $("#can");
 
 
 
 const newGame = new Game("tom", "33");
 
+// $('#drink').on('click', canSound);
 $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
-
 
 
 
