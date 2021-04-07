@@ -69,7 +69,7 @@ main .beer {
     width: 1000px;
 
 }
- main .chops {
+ main .skill {
      height: 50px;;
      display: inline-block;
      margin-bottom: 10px;
@@ -89,7 +89,7 @@ footer .beer {
     display: inline-block;
 }
 
-footer .chops {
+footer .skill {
     height: 100%;
     flex-grow: 1;
     display:inline-block;
@@ -101,7 +101,7 @@ footer .center {
     display: inline-block;
 }
 
-footer .rage {
+footer .skill {
     height: 100%;
     flex-grow: 1;
     display: inline-block;
@@ -133,6 +133,3 @@ button {
     margin-right: auto;
 }
 
-#beer__bar{
-    width: null;
-}

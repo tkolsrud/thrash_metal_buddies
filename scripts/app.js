@@ -13,6 +13,14 @@ Step 4.
     Work on jquery and animations
  */
 
+
+
+const echo = function echo() {
+    console.log('echo');
+}
+
+
+
 const Game = class {
     constructor(name, age) {
         this.name = name;
@@ -20,27 +28,27 @@ const Game = class {
 
         this.time = 0;
         this.beer = 100;
-        this.chops = 100;
-        this.crank = 0;
+        this.skill = 100;
+        this.rage = 0;
     }
 
     gameTimer = null
     beerTimer = null
-    chopsTimer = null
-    crankTimer = null
+    skillTimer = null
+    rageTimer = null
     ageTimer = null
 
     // TIMER METHODS
     beerCounter() {
         this.beerTimer = setInterval(this.reduceBeer, 1000);
     }
-    chopsCounter() {
-        this.chopsTimer = setInterval(this.reduceChops, 1000);
+    skillCounter() {
+        this.skillTimer = setInterval(this.reduceSkill, 1000);
 
     }
 
-    crankCounter() {
-        this.crankTimer = setInterval(this.increaseCrank, 1000);
+    rageCounter() {
+        this.rageTimer = setInterval(this.increaseRage, 1000);
     }
 
     ageCounter() {
@@ -57,20 +65,19 @@ const Game = class {
     }
 
 
-    reduceChops() {
-        if (newGame.chops === 0) {
-            clearInterval(newGame.chopsCounter);
+    reduceSkill() {
+        if (newGame.skill === 0) {
+            clearInterval(newGame.skillCounter);
         } else {
-            newGame.chops--;
+            newGame.skill -= 10;
         }
     }
 
-    increaseCrank() {
-        if (newGame.crank === 10) {
-            clearInterval(newGame.crankCounter);
+    increaseRage() {
+        if (newGame.rage === 100) {
+            clearInterval(newGame.rageCounter);
         } else {
-            newGame.crank += 3;
-            console.log(newGame.crank);
+            newGame.rage += 20;
         }
     }
 
@@ -88,50 +95,48 @@ const Game = class {
     }
 
     practice() {
-        if (newGame.chops < 10) {
-            newGame.chops++;
+        if (newGame.skill < 100) {
+            newGame.skill += 10;
         }
     }
 
     trash() {
-        if (newGame.crank > 0) {
-            newGame.crank = 0;
+        if (newGame.rage > 0) {
+            newGame.rage = 0;
         }
     }
 
     // This will probably end up being part of a conditional that all the other methods are nested into. When the user enters their name and age it could call said method
     quit() {
-        if (this.beer === 0 || this.chops === 0 || this.crank === 10) {
+        if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
             console.log(`${newGame.name} quit the band`);
         }
     }
 }
 
-const $canSound = $("#can");
-
 
 
 const newGame = new Game("tom", "33");
 
-// $('#drink').on('click', canSound);
 $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
 
 const beerBar = function beerBar() {
     return $('#beer__bar').css(`width`, `${newGame.beer}%`);
+};
+
+const skillBar = function skillBar() {
+    return $('#skill__bar').css('width', `${newGame.skill}%`);
 }
 
+const rageBar = function rageBar() {
+    return $('#rage__bar').css('width', `${newGame.rage}%`);
+}
 
 setInterval(beerBar, 100);
+setInterval(skillBar, 100);
+setInterval(rageBar, 100);
 
-
-
-
-
-
-const echo = function echo() {
-    console.log('echo');
-}
 
 
