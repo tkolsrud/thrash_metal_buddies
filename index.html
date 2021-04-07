@@ -10,48 +10,69 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="scripts/app.js" defer></script>
-    <title>Document</title>
-</head>
-
-<title>Thrash Buddy</title>
+    <title>Thrash Metal Buddies!</title>
 </head>
 
 <body>
+
+    <!-- Input Form -->
+    <div class="container dark form-popup" id="name-input">
+        <form action="/action_page.php" class="form-container">
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Name you buddy" name="name" id="">
+            <label for="age"><b>Age</b></label>
+            <input type="text" placeholder="How old is your buddy?" name="age">
+            <button typle="submit" class="pup-button">Start Game</button>
+        </form>
+    </div>
+
     <header class="header">
         <div class="header left">
-            Name:
+            <div class="container dark">
+                <p>Name:<span></span></p>
+            </div>
         </div>
         <div class="header middle"></div>
         <div class="header right">
-            Age:
+            <div class="container dark">
+                <p>Age:<span></span></p>
+            </div>
         </div>
     </header>
     <main class="maingame">
         <section class="gamearea rage">
-            <button type="button" class="trash" id="trash">Trash Dressing Room</button>
+            <button type="button" class="btn trash" id="trash">Trash Dressing Room</button>
             <div class="progress error">
                 <div class="bar" id="rage__bar"></div>
                 <div class="subtitle">Rage level</div>
             </div>
         </section>
         <section class="gamearea beer">
-            <button type="button" class="drink" id="drink">Drink</button>
+            <button type="button" class="btn drink" id="drink">Drink</button>
             <div class="progress error">
                 <div class="bar" id="beer__bar"></div>
                 <div class="subtitle">Beer Level</div>
             </div>
         </section>
         <section class="gamearea skill">
-            <button type="button" class="practice" id="practice">Practice</button>
+            <button type="button" class="btn practice" id="practice">Practice</button>
             <div class="progress warning">
                 <div class="bar" id="skill__bar" style="width: 80%"></div>
                 <div class="subtitle">Skill Level</div>
             </div>
         </section>
         <section class="gamearea avatar">
+
+
+            <!-- Amplifier Image -->
             <img class="amplifier left" src="amplifier.png" alt="">
+
+            <!-- Player Avatars -->
             <img src="metalguy.png" alt="" class="buddy">
+
+            <!-- Amplifier Image -->
             <img class="amplifier right" src="amplifier.png" alt="">
+
         </section>
 
     </main>
@@ -62,16 +83,13 @@
             </div>
         </section>
         <section class="footer skill">
-
         </section>
         <section class="footer center">
         </section>
         <section class="footer rage">
-
         </section>
-
-
     </footer>
+
 </body>
 
 </html>
