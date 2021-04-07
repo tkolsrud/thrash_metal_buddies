@@ -64,7 +64,6 @@ const Game = class {
         }
     }
 
-
     reduceSkill() {
         if (newGame.skill === 0) {
             clearInterval(newGame.skillCounter);
@@ -90,6 +89,7 @@ const Game = class {
     drink() {
         if (newGame.beer < 100) {
             newGame.beer += 10;
+            newGame.skill -= 10;
 
         }
     }
@@ -97,6 +97,7 @@ const Game = class {
     practice() {
         if (newGame.skill < 100) {
             newGame.skill += 10;
+            newGame.beer -= 10;
         }
     }
 

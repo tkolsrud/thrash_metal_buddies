@@ -8,8 +8,7 @@ body{
     max-height: 100vh;
     width: 100%;
     background-color:  #221316;
-    margin: zero
-    /* display:inline-block; */
+    margin: 0;
 }
 
 header {
@@ -60,6 +59,7 @@ main .rage {
     display: inline-block;
     margin-bottom: 10px;
     width: 500px;
+    padding-left: 20px;
 }
 
 main .beer {
@@ -67,6 +67,7 @@ main .beer {
     display: inline-block;
     margin-bottom: 10px;;
     width: 1000px;
+    padding-left: 20px;
 
 }
  main .skill {
@@ -74,6 +75,7 @@ main .beer {
      display: inline-block;
      margin-bottom: 10px;
      width: 750px;
+     padding-left:20px;
  }
 
 main .avatar {
@@ -120,6 +122,10 @@ footer .skill {
 button {
     max-height: 60px;
     font-size: 15px;
+    background-color: #ccc5b9;
+    color: white;
+    border-radius: 10%;
+    padding: 5px;
 }
 
 .amplifier {
