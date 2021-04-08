@@ -20,6 +20,31 @@ const echo = function echo() {
 }
 
 
+let ageInput = null;
+let nameInput = null;
+
+
+
+const collectAge = function collectAge() {
+    console.log("sanity check");
+    ageInput = $('#input-age').val();
+    $('#span-age').text(`    ${ageInput}`);
+};
+
+const collectName = function collectName() {
+    console.log("sanity check");
+    nameInput = $('#input-name').val();
+    $('#span-name').text(`    ${nameInput}`);
+}
+
+
+$("#input-button").on('click', collectAge);
+$("#input-button").on('click', collectName);
+
+
+
+
+/* Game Class */
 
 const Game = class {
     constructor(name, age) {
@@ -126,14 +151,12 @@ $('#trash').on('click', newGame.trash);
 const beerBar = function beerBar() {
     return $('#beer__bar').css(`width`, `${newGame.beer}%`);
 };
-
 const skillBar = function skillBar() {
     return $('#skill__bar').css('width', `${newGame.skill}%`);
-}
-
+};
 const rageBar = function rageBar() {
     return $('#rage__bar').css('width', `${newGame.rage}%`);
-}
+};
 
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);

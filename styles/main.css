@@ -4,16 +4,49 @@
     box-sizing: border-box;
 }
 
+
 body{
     min-height: 100vh;
     width: 100%;
-    background-color:  #221316;
+    background-color: #221316;
     margin: 0;
     position: relative;
 }
 
+#name-input {
+    z-index: 6;
+    top: 35%;
+    left: 30%;
+    position: absolute;
+    height: 300px;
+    width: 500px;
+    background-color: #221316;
+}
+
+.field {
+    margin-top: 10px;
+    padding-top: 10px;
+    background-color: #221316;
+    width: 300px;
+}
+
+
+
+/* .input__label {
+
+} */
+
+input {
+    padding: 5px;
+    margin-left: 15px;
+}
+
+
+
+/* Header */
+
 header {
-    background-color: #250902;
+    background-color: rgb(16, 20, 20);
     height: 15vh;
     width: 100%;
     display: flex;
@@ -21,23 +54,6 @@ header {
     
 }
 
-.maingame {
-    height: 70vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-image: url("http://pavbca.com/walldb/original/f/7/c/51709.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-footer {
-    background-color: #221316;
-    height: 15vh;
-    width: 100%;
-    display: flex;
-
-}
 header .left {
     height: 100%;
     flex-grow: 1;
@@ -53,6 +69,22 @@ header .right {
     height: 100%;
     flex-grow: 1;
     padding: 20px;
+}
+
+
+
+
+
+/* Main Game Area */
+
+.maingame {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url("http://pavbca.com/walldb/original/f/7/c/51709.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 main .rage {
@@ -87,32 +119,6 @@ main .avatar {
     flex-grow: 1;
 }
 
-
-
-footer .beer {
-    height: 100%;
-    flex-grow: 1;
-    display: inline-block;
-}
-
-footer .skill {
-    height: 100%;
-    flex-grow: 1;
-    display:inline-block;
-}
-
-footer .center {
-    height: 100%;
-    flex-grow: 4;
-    display: inline-block;
-}
-
-footer .skill {
-    height: 100%;
-    flex-grow: 1;
-    display: inline-block;
-}
-
 .buddy {
     max-height: 400px;
     max-width: 300px;
@@ -140,17 +146,67 @@ footer .skill {
     margin-right: auto;
 }
 
-#name-input {
-    z-index: 6;
-    top: 35%;
-    left: 30%;
-    position: absolute;
-}
-
+/* .progress {
+    background-color: #640d14;
+} */
 .btn #drink {
     margin-left: 20px;
 }
 
-.bar #rage__bar {
-    margin-left: 20px;
+
+
+
+
+
+
+/* Footer */
+
+footer {
+    background-color: rgb(07, 01, 02);
+    height: 15vh;
+    width: 100%;
+    display: flex;
 }
+
+footer .beer {
+    height: 100%;
+    flex-grow: 1;
+    display: inline-block;
+}
+
+footer .skill {
+    height: 100%;
+    flex-grow: 1;
+    display:inline-block;
+}
+
+footer .center {
+    height: 100%;
+    flex-grow: 4;
+    display: inline-block;
+}
+
+footer .skill {
+    height: 100%;
+    flex-grow: 1;
+    display: inline-block;
+}
+
+
+
+
+
+#name-input {
+    background-color: #221316;
+}
+
+
+
+
+
+
+
+
+
+
+
