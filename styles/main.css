@@ -229,20 +229,7 @@ footer .skill {
 
 
 /* Animation */
-@keyframes dance {
-    0% {
-        transform: translatex(0%);
-    }
-    30% {
-        transform: translatex(10%);
-    }
-    60% { 
-        transform: translatex(-10%);
-    }
-    100% {
-        transform: translatex(0%);
-    }
-}
+
 
 
 

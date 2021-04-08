@@ -99,19 +99,19 @@ const newGame = {
         return $('#span-age').text(`    ${newGame.age}`);
     },
 
-    transform() {
-        if (newGame.time < 5) {
-            newGame.time++;
-            console.log(newGame.time);
-        } else {
-            clearInterval(newGame.transformCounter);
-            $('#metalhead').css('opacity', "100");
-            $('#hippy').remove();
-            $('#message').text('METALHEAD!!!');
-            playSong();
-            return setTimeout(backTransition, 5000);
-        }
-    },
+    // transform() {
+    //     if (newGame.time < 5) {
+    //         newGame.time++;
+    //         console.log(newGame.time);
+    //     } else {
+    //         clearInterval(newGame.transformCounter);
+    //         $('#metalhead').css('opacity', "100");
+    //         $('#hippy').remove();
+    //         $('#message').text('METALHEAD!!!');
+    //         playSong();
+    //         return setTimeout(backTransition, 5000);
+    //     }
+    // },
 
     // // BUTTON METHODS
     drink() {
@@ -202,6 +202,28 @@ const playSong = function playSong() {
 }
 
 
+/* Animations */
+
+const practiceDance = function practiceDance() {
+    $('.buddy').addClass('animate__bounce');
+    setTimeout(function () { $('.buddy').removeClass('animate__bounce'); }, 1000);
+};
+
+const trashDance = function trashDance() {
+    $('.buddy').addClass('animate__headShake');
+    setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
+}
+
+
+
+
+$('#trash').on('click', trashDance);
+$('#practice').on('click', practiceDance);
+
+
+
+
+
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
@@ -213,9 +235,9 @@ $("#input-button").on('click', function () {
 
 });
 
-$("#input-button").on('click', function () {
-    setTimeout(newGame.startGame, 3000);
-});
+// $("#input-button").on('click', function () {
+//     setTimeout(newGame.startGame, 3000);
+// });
 
 
 $('#drink').on('click', playDrink);
@@ -228,17 +250,11 @@ $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
 
 
-
 // const hippyDance = function hippyDance() {
 //     $('#hippy').toggleClass('.animate__animated.animate__bounce');
 // }
 
-$('#drink').on('click', function () {
 
-    $hippy.css('transition', '1s')
-    $hippy.animate({ left: '-.01' });
-    $hippy.animate({ right: '-2' });
-});
 
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);
@@ -247,4 +263,4 @@ setInterval(rageBar, 100);
 
 
 
-
+/add spin remove/
