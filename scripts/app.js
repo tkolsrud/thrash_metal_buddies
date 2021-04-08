@@ -8,7 +8,7 @@ let nameInput = null;
 const trashFx = new Audio('https://freesound.org/data/previews/171/171996_112577-lq.mp3');
 const drinkFx = new Audio('https://freesound.org/data/previews/61/61392_792945-lq.mp3');
 const practiceFx = new Audio('https://freesound.org/data/previews/1/1401_838-lq.mp3');
-const songFX = new Audio('metalsong.mp3');
+const songFX = new Audio('./audio/metalsong.mp3');
 
 
 
