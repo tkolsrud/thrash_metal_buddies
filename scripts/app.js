@@ -114,8 +114,6 @@ const newGame = {
         newGame.beerCounter();
         newGame.skillCounter();
         newGame.rageCounter();
-        $("#input-form").remove();
-
     },
 
     // quit() {
@@ -159,10 +157,15 @@ const rageBar = function rageBar() {
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
-    newGame.startGame();
+    // newGame.startGame();
     $('#hippy').css("transform", "translatey(0)");
+    $("#input-form").remove();
+
 });
 
+$("#input-button").on('click', function () {
+    setTimeout(newGame.startGame, 3000);
+});
 
 
 $('#drink').on('click', newGame.drink);
