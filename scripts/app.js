@@ -20,6 +20,7 @@ const echo = function echo() {
 }
 
 
+
 let ageInput = null;
 let nameInput = null;
 
@@ -39,6 +40,7 @@ const newGame = {
     skillTimer: null,
     rageTimer: null,
     ageTimer: null,
+    transformTimer: null,
 
     // TIMER METHODS
     beerCounter() {
@@ -55,6 +57,10 @@ const newGame = {
 
     ageCounter() {
         this.ageTimer = setInterval(this.increaseAge, 5000);
+    },
+
+    transformCounter() {
+        this.transformTimer = setInterval(this.transform, 1000);
     },
 
     // METRIC ALTERATION METHODS
@@ -87,6 +93,18 @@ const newGame = {
         return $('#span-age').text(`    ${newGame.age}`);
     },
 
+    transform() {
+        if (newGame.time < 10) {
+            newGame.time++;
+            console.log(newGame.time);
+        } else {
+            $('#metalhead').css('opacity', "100");
+            $('#hippy').remove();
+            $('#message').text('METALHEAD!!!');
+            setTimeout(backTransition, 5000);
+        }
+    },
+
     // // BUTTON METHODS
     drink() {
         if (newGame.beer < 100) {
@@ -115,6 +133,7 @@ const newGame = {
         newGame.skillCounter();
         newGame.rageCounter();
         newGame.ageCounter();
+        newGame.transformCounter();
     },
 
     // quit() {
@@ -157,12 +176,19 @@ const rageBar = function rageBar() {
 //     return $('#span-age').text(`    ${newGame.age}`);
 // }
 
+const backTransition = function backTransition() {
+    $('#demon-throne').css("opacity", "100");
+};
+
+
 
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
     $('#hippy').css("transform", "translatey(0)");
+    $('#hippy').css("opacity", "100");
     $("#input-form").remove();
+    $("#message").text('Hippy...')
 
 });
 

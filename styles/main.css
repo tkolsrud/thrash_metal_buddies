@@ -85,7 +85,10 @@ header .right {
     background-image: url("http://pavbca.com/walldb/original/f/7/c/51709.jpg");
     background-size: cover;
     background-position: center;
+    position: relative;
 }
+
+
 
 main .rage {
     height: 50px;;
@@ -94,6 +97,7 @@ main .rage {
     width: 500px;
     padding-top: 10px;
     padding-left: 20px;
+    z-index: 2;
 }
 
 main .beer {
@@ -103,6 +107,7 @@ main .beer {
     width: 1000px;
     padding-top: 10px;
     padding-left: 20px;
+    z-index: 3;
 
 }
  main .skill {
@@ -112,11 +117,13 @@ main .beer {
      width: 750px;
      padding-top: 10px;
      padding-left:20px;
+     z-index: 3;
  }
 
 main .avatar {
     display: flex;
     flex-grow: 1;
+    z-index: 3;
 }
 
 .buddy {
@@ -159,13 +166,23 @@ main .avatar {
     left: 45%;
     transform: translatey(100%);
     transition: 3s linear;
+    opacity: 0;
 }
 
 #metalhead {
     opacity: 0;
+    transition: 3s linear;
 }
 
-
+.demon-throne {
+    z-index: 1;
+    position: absolute;
+    height: 70vh;
+    top: 30;
+    width: 100%;
+    transition: 7s linear;
+    opacity: 0;
+}
 
 /* Footer */
 
