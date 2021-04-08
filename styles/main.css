@@ -13,7 +13,7 @@ body{
     position: relative;
 }
 
-#name-input {
+#input-form {
     z-index: 6;
     top: 35%;
     left: 30%;

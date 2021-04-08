@@ -24,10 +24,6 @@ let ageInput = null;
 let nameInput = null;
 
 
-
-
-
-
 /* Game Object */
 
 const newGame = {
@@ -38,36 +34,23 @@ const newGame = {
     skill: 100,
     rage: 0,
 
-
     gameTimer: null,
     beerTimer: null,
     skillTimer: null,
     rageTimer: null,
     ageTimer: null,
 
-
-
-
-
-
-
-    // quit() {
-    //         if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
-    //             console.log(`${newGame.name} quit the band`);
-    //         }
-    //     },
-
     // TIMER METHODS
     beerCounter() {
         this.beerTimer = setInterval(this.reduceBeer, 1000);
     },
     skillCounter() {
-        this.skillTimer = setInterval(this.reduceSkill, 1000);
+        this.skillTimer = setInterval(this.reduceSkill, 2000);
 
     },
 
     rageCounter() {
-        this.rageTimer = setInterval(this.increaseRage, 1000);
+        this.rageTimer = setInterval(this.increaseRage, 3000);
     },
 
     ageCounter() {
@@ -131,7 +114,17 @@ const newGame = {
         newGame.beerCounter();
         newGame.skillCounter();
         newGame.rageCounter();
+        $("#input-form").remove();
+
     },
+
+    // quit() {
+    //         if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
+    //             console.log(`${newGame.name} quit the band`);
+    //         }
+    //     },
+
+
 };
 
 
@@ -150,15 +143,6 @@ const collectName = function collectName() {
     $('#span-name').text(`    ${newGame.name}`);
 }
 
-$("#input-button").on('click', collectAge);
-$("#input-button").on('click', collectName);
-$("#input-button").on('click', newGame.startGame);
-
-
-
-$('#drink').on('click', newGame.drink);
-$('#practice').on('click', newGame.practice);
-$('#trash').on('click', newGame.trash);
 
 const beerBar = function beerBar() {
     return $('#beer__bar').css(`width`, `${newGame.beer}%`);
@@ -169,6 +153,22 @@ const skillBar = function skillBar() {
 const rageBar = function rageBar() {
     return $('#rage__bar').css('width', `${newGame.rage}%`);
 };
+
+
+
+$("#input-button").on('click', function () {
+    collectAge();
+    collectName();
+    newGame.startGame();
+});
+
+
+
+$('#drink').on('click', newGame.drink);
+$('#practice').on('click', newGame.practice);
+$('#trash').on('click', newGame.trash);
+
+
 
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);
