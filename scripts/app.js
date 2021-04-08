@@ -25,60 +25,54 @@ let nameInput = null;
 
 
 
-const collectAge = function collectAge() {
-    console.log("sanity check");
-    ageInput = $('#input-age').val();
-    $('#span-age').text(`    ${ageInput}`);
-};
-
-const collectName = function collectName() {
-    console.log("sanity check");
-    nameInput = $('#input-name').val();
-    $('#span-name').text(`    ${nameInput}`);
-}
-
-
-$("#input-button").on('click', collectAge);
-$("#input-button").on('click', collectName);
 
 
 
+/* Game Object */
 
-/* Game Class */
+const newGame = {
+    name: nameInput,
+    age: ageInput,
+    time: 0,
+    beer: 100,
+    skill: 100,
+    rage: 0,
 
-const Game = class {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
 
-        this.time = 0;
-        this.beer = 100;
-        this.skill = 100;
-        this.rage = 0;
-    }
+    gameTimer: null,
+    beerTimer: null,
+    skillTimer: null,
+    rageTimer: null,
+    ageTimer: null,
 
-    gameTimer = null
-    beerTimer = null
-    skillTimer = null
-    rageTimer = null
-    ageTimer = null
+
+
+
+
+
+
+    // quit() {
+    //         if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
+    //             console.log(`${newGame.name} quit the band`);
+    //         }
+    //     },
 
     // TIMER METHODS
     beerCounter() {
         this.beerTimer = setInterval(this.reduceBeer, 1000);
-    }
+    },
     skillCounter() {
         this.skillTimer = setInterval(this.reduceSkill, 1000);
 
-    }
+    },
 
     rageCounter() {
         this.rageTimer = setInterval(this.increaseRage, 1000);
-    }
+    },
 
     ageCounter() {
         this.ageTimer = setInterval(this.increaseAge, 5000);
-    }
+    },
 
     // METRIC ALTERATION METHODS
     reduceBeer() {
@@ -87,7 +81,7 @@ const Game = class {
         } else {
             newGame.beer -= 10;
         }
-    }
+    },
 
     reduceSkill() {
         if (newGame.skill === 0) {
@@ -95,7 +89,7 @@ const Game = class {
         } else {
             newGame.skill -= 10;
         }
-    }
+    },
 
     increaseRage() {
         if (newGame.rage === 100) {
@@ -103,12 +97,12 @@ const Game = class {
         } else {
             newGame.rage += 20;
         }
-    }
+    },
 
     increaseAge() {
         newGame.age++;
         console.log(newGame.age);
-    }
+    },
 
     // // BUTTON METHODS
     drink() {
@@ -117,32 +111,50 @@ const Game = class {
             newGame.skill -= 10;
 
         }
-    }
+    },
 
     practice() {
         if (newGame.skill < 100) {
             newGame.skill += 10;
             newGame.beer -= 10;
         }
-    }
+    },
 
     trash() {
         if (newGame.rage > 0) {
             newGame.rage = 0;
         }
-    }
+    },
 
     // This will probably end up being part of a conditional that all the other methods are nested into. When the user enters their name and age it could call said method
-    quit() {
-        if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
-            console.log(`${newGame.name} quit the band`);
-        }
-    }
+    startGame() {
+        newGame.beerCounter();
+        newGame.skillCounter();
+        newGame.rageCounter();
+    },
+};
+
+
+
+
+
+const collectAge = function collectAge() {
+    console.log("sanity check");
+    newGame.age = $('#input-age').val();
+    $('#span-age').text(`    ${newGame.age}`);
+};
+
+const collectName = function collectName() {
+    console.log("sanity check");
+    newGame.name = $('#input-name').val();
+    $('#span-name').text(`    ${newGame.name}`);
 }
 
+$("#input-button").on('click', collectAge);
+$("#input-button").on('click', collectName);
+$("#input-button").on('click', newGame.startGame);
 
 
-const newGame = new Game("tom", "33");
 
 $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
@@ -161,6 +173,8 @@ const rageBar = function rageBar() {
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);
 setInterval(rageBar, 100);
+
+
 
 
 
