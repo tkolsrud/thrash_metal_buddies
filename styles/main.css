@@ -153,9 +153,17 @@ main .avatar {
     margin-left: 20px;
 }
 
+#hippy {
+    position: absolute;
+    z-index: 6;
+    left: 45%;
+    transform: translatey(100%);
+    transition: 3s linear;
+}
 
-
-
+#metalhead {
+    opacity: 0;
+}
 
 
 
@@ -166,6 +174,8 @@ footer {
     height: 15vh;
     width: 100%;
     display: flex;
+    position: absolute;
+    z-index: 10;
 }
 
 footer .beer {

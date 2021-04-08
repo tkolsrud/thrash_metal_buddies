@@ -160,6 +160,7 @@ $("#input-button").on('click', function () {
     collectAge();
     collectName();
     newGame.startGame();
+    $('#hippy').css("transform", "translatey(0)");
 });
 
 
