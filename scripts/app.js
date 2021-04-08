@@ -42,10 +42,10 @@ const newGame = {
 
     // TIMER METHODS
     beerCounter() {
-        this.beerTimer = setInterval(this.reduceBeer, 1000);
+        this.beerTimer = setInterval(this.reduceBeer, 1500);
     },
     skillCounter() {
-        this.skillTimer = setInterval(this.reduceSkill, 2000);
+        this.skillTimer = setInterval(this.reduceSkill, 3000);
 
     },
 
@@ -62,7 +62,7 @@ const newGame = {
         if (newGame.beer === 0) {
             clearInterval(newGame.beerCounter);
         } else {
-            newGame.beer -= 10;
+            newGame.beer -= 5;
         }
     },
 
@@ -70,7 +70,7 @@ const newGame = {
         if (newGame.skill === 0) {
             clearInterval(newGame.skillCounter);
         } else {
-            newGame.skill -= 10;
+            newGame.skill -= 5;
         }
     },
 
@@ -83,15 +83,15 @@ const newGame = {
     },
 
     increaseAge() {
-        newGame.age++;
-        console.log(newGame.age);
+        (newGame.age) += 1;
+        return $('#span-age').text(`    ${newGame.age}`);
     },
 
     // // BUTTON METHODS
     drink() {
         if (newGame.beer < 100) {
             newGame.beer += 10;
-            newGame.skill -= 10;
+            newGame.skill -= 2;
 
         }
     },
@@ -99,7 +99,7 @@ const newGame = {
     practice() {
         if (newGame.skill < 100) {
             newGame.skill += 10;
-            newGame.beer -= 10;
+            newGame.beer -= 2;
         }
     },
 
@@ -114,6 +114,7 @@ const newGame = {
         newGame.beerCounter();
         newGame.skillCounter();
         newGame.rageCounter();
+        newGame.ageCounter();
     },
 
     // quit() {
@@ -132,6 +133,7 @@ const newGame = {
 const collectAge = function collectAge() {
     console.log("sanity check");
     newGame.age = $('#input-age').val();
+    newGame.age = parseInt(newGame.age);
     $('#span-age').text(`    ${newGame.age}`);
 };
 
@@ -151,13 +153,14 @@ const skillBar = function skillBar() {
 const rageBar = function rageBar() {
     return $('#rage__bar').css('width', `${newGame.rage}%`);
 };
-
+// const updateAge = function updateAge() {
+//     return $('#span-age').text(`    ${newGame.age}`);
+// }
 
 
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
-    // newGame.startGame();
     $('#hippy').css("transform", "translatey(0)");
     $("#input-form").remove();
 
@@ -171,7 +174,6 @@ $("#input-button").on('click', function () {
 $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
-
 
 
 setInterval(beerBar, 100);
