@@ -83,11 +83,12 @@ const newGame = {
             console.log(newGame.time);
         } else {
             clearInterval(newGame.transformCounter);
-            $('#metalhead').css('opacity', "100");
-            $('#hippy').remove();
+            $('#hippy').addClass('flash');
+            $('#hippy').fadeOut(3000);
+            setTimeout(function () { $('#metalhead').css('opacity', '100'); }, 1000);
             $('#message').text('METALHEAD!!!');
             setTimeout(playSong, 500);
-            return setTimeout(backTransition, 5000);
+            return setTimeout(backTransition, 6000);
         }
     },
 
