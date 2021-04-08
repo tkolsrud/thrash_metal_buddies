@@ -20,31 +20,14 @@ const echo = function echo() {
 }
 
 
-
+let $hippy = $('#hippy');
 let ageInput = null;
 let nameInput = null;
-
 const trashFx = new Audio('https://freesound.org/data/previews/171/171996_112577-lq.mp3');
-
 const drinkFx = new Audio('https://freesound.org/data/previews/61/61392_792945-lq.mp3');
+const practiceFx = new Audio('https://freesound.org/data/previews/1/1401_838-lq.mp3');
+const songFX = new Audio('metalsong.mp3');
 
-const practiceFx = new Audio('https://freesound.org/data/previews/1/1401_838-lq.mp3')
-
-const playDrink = function playDrink() {
-    drinkFx.play();
-};
-
-const playTrash = function playTrash() {
-    trashFx.play();
-};
-
-const playPractice = function playPractice() {
-    practiceFx.play();
-};
-
-$('#drink').on('click', playDrink);
-$('#trash').on('click', playTrash);
-$('#practice').on('click', playPractice);
 
 
 
@@ -117,14 +100,16 @@ const newGame = {
     },
 
     transform() {
-        if (newGame.time < 10) {
+        if (newGame.time < 5) {
             newGame.time++;
             console.log(newGame.time);
         } else {
+            clearInterval(newGame.transformCounter);
             $('#metalhead').css('opacity', "100");
             $('#hippy').remove();
             $('#message').text('METALHEAD!!!');
-            setTimeout(backTransition, 5000);
+            playSong();
+            return setTimeout(backTransition, 5000);
         }
     },
 
@@ -195,21 +180,34 @@ const skillBar = function skillBar() {
 const rageBar = function rageBar() {
     return $('#rage__bar').css('width', `${newGame.rage}%`);
 };
-// const updateAge = function updateAge() {
-//     return $('#span-age').text(`    ${newGame.age}`);
-// }
 
 const backTransition = function backTransition() {
     $('#demon-throne').css("opacity", "100");
 };
 
+const playDrink = function playDrink() {
+    drinkFx.play();
+};
+
+const playTrash = function playTrash() {
+    trashFx.play();
+};
+
+const playPractice = function playPractice() {
+    practiceFx.play();
+};
+
+const playSong = function playSong() {
+    songFX.play();
+}
 
 
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
-    $('#hippy').css("transform", "translatey(0)");
-    $('#hippy').css("opacity", "100");
+    $hippy.css("transition", "2s linear")
+    $hippy.css("transform", "translatey(0%)");
+    $hippy.css("opacity", "100");
     $("#input-form").remove();
     $("#message").text('Hippy...')
 
@@ -220,10 +218,27 @@ $("#input-button").on('click', function () {
 });
 
 
+$('#drink').on('click', playDrink);
+$('#trash').on('click', playTrash);
+$('#practice').on('click', playPractice);
+
+
 $('#drink').on('click', newGame.drink);
 $('#practice').on('click', newGame.practice);
 $('#trash').on('click', newGame.trash);
 
+
+
+// const hippyDance = function hippyDance() {
+//     $('#hippy').toggleClass('.animate__animated.animate__bounce');
+// }
+
+$('#drink').on('click', function () {
+
+    $hippy.css('transition', '1s')
+    $hippy.animate({ left: '-.01' });
+    $hippy.animate({ right: '-2' });
+});
 
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);
