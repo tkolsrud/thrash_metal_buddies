@@ -15,7 +15,7 @@ body{
 }
 
 #input-form {
-    z-index: 6;
+    z-index: 4;
     top: 35%;
     left: 30%;
     position: absolute;
@@ -23,6 +23,49 @@ body{
     width: 500px;
     background-color: #221316;
 }
+
+#quit-rage {
+    z-index: 5;
+    top: 35%;
+    left: 30%;
+    position: absolute;
+    height: 200px;
+    width: 500px;
+    background-color: #221316;
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+#quit-beer {
+    z-index: 6;
+    top: 35%;
+    left: 30%;
+    position: absolute;
+    height: 200px;
+    width: 500px;
+    background-color: #221316;
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+#quit-skill {
+    z-index: 7;
+    top: 35%;
+    left: 30%;
+    position: absolute;
+    height: 200px;
+    width: 500px;
+    background-color: #221316;
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+
 
 .field {
     margin-top: 10px;
@@ -98,7 +141,7 @@ main .rage {
     width: 500px;
     padding-top: 10px;
     padding-left: 20px;
-    z-index: 2;
+    z-index: 3;
 }
 
 main .beer {
@@ -228,7 +271,6 @@ footer .skill {
 }
 
 
-/* Animation */
 
 
 

@@ -1,24 +1,6 @@
 console.log("[app.js] is loaded");
 
-/*
-Step 1.
-    create the game class and game object
-Step 2.
-    write in the button methods
-        - 
-
-Step 3.
-    write in the timer methods
-Step 4.
-    Work on jquery and animations
- */
-
-
-
-const echo = function echo() {
-    console.log('echo');
-}
-
+/* Variables */
 
 let $hippy = $('#hippy');
 let ageInput = null;
@@ -50,55 +32,51 @@ const newGame = {
 
     // TIMER METHODS
     beerCounter() {
-        this.beerTimer = setInterval(this.reduceBeer, 1500);
+        this.beerTimer = setInterval(this.reduceBeer, 500);
     },
     skillCounter() {
-        this.skillTimer = setInterval(this.reduceSkill, 3000);
+        this.skillTimer = setInterval(this.reduceSkill, 500);
 
     },
-
     rageCounter() {
-        this.rageTimer = setInterval(this.increaseRage, 3000);
+        this.rageTimer = setInterval(this.increaseRage, 500);
     },
-
     ageCounter() {
         this.ageTimer = setInterval(this.increaseAge, 5000);
     },
-
     transformCounter() {
         this.transformTimer = setInterval(this.transform, 1000);
     },
 
     // METRIC ALTERATION METHODS
     reduceBeer() {
-        if (newGame.beer === 0) {
+        if (newGame.beer <= 0) {
             clearInterval(newGame.beerCounter);
+            return $('#quit-beer').show();
         } else {
-            newGame.beer -= 5;
+            newGame.beer -= 2;
         }
     },
-
     reduceSkill() {
-        if (newGame.skill === 0) {
+        if (newGame.skill <= 0) {
             clearInterval(newGame.skillCounter);
+            return $('#quit-skill').show();
         } else {
-            newGame.skill -= 5;
+            newGame.skill -= 2;
         }
     },
-
     increaseRage() {
         if (newGame.rage === 100) {
             clearInterval(newGame.rageCounter);
+            return $('#quit-rage').show();
         } else {
-            newGame.rage += 20;
+            newGame.rage += 1;
         }
     },
-
     increaseAge() {
         (newGame.age) += 1;
         return $('#span-age').text(`    ${newGame.age}`);
     },
-
     transform() {
         if (newGame.time < 5) {
             newGame.time++;
@@ -108,7 +86,7 @@ const newGame = {
             $('#metalhead').css('opacity', "100");
             $('#hippy').remove();
             $('#message').text('METALHEAD!!!');
-            playSong();
+            setTimeout(playSong, 500);
             return setTimeout(backTransition, 5000);
         }
     },
@@ -118,24 +96,54 @@ const newGame = {
         if (newGame.beer < 100) {
             newGame.beer += 10;
             newGame.skill -= 2;
-
         }
     },
-
     practice() {
         if (newGame.skill < 100) {
             newGame.skill += 10;
             newGame.beer -= 2;
         }
     },
-
     trash() {
         if (newGame.rage > 0) {
             newGame.rage = 0;
         }
     },
 
-    // This will probably end up being part of a conditional that all the other methods are nested into. When the user enters their name and age it could call said method
+    //  Button Animations
+    practiceDance() {
+        $('.buddy').addClass('animate__bounce');
+        setTimeout(function () { $('.buddy').removeClass('animate__bounce'); }, 1000);
+    },
+
+    trashDance() {
+        $('.buddy').addClass('animate__headShake');
+        setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
+    },
+
+    beerDance() {
+        $('.buddy').addClass('animate__pulse');
+        setTimeout(function () { $('.buddy').removeClass('animate__pulse'); }, 1000);
+    },
+
+    // Sound Effects
+    playDrink() {
+        drinkFx.play();
+    },
+
+    playTrash() {
+        trashFx.play();
+    },
+
+    playPractice() {
+        practiceFx.play();
+    },
+
+    playSong() {
+        songFX.play();
+    },
+
+    // Start/End Game Methods
     startGame() {
         newGame.beerCounter();
         newGame.skillCounter();
@@ -156,6 +164,7 @@ const newGame = {
 
 
 
+/* Functions */
 
 const collectAge = function collectAge() {
     console.log("sanity check");
@@ -163,14 +172,11 @@ const collectAge = function collectAge() {
     newGame.age = parseInt(newGame.age);
     $('#span-age').text(`    ${newGame.age}`);
 };
-
 const collectName = function collectName() {
     console.log("sanity check");
     newGame.name = $('#input-name').val();
     $('#span-name').text(`    ${newGame.name}`);
-}
-
-
+};
 const beerBar = function beerBar() {
     return $('#beer__bar').css(`width`, `${newGame.beer}%`);
 };
@@ -180,53 +186,27 @@ const skillBar = function skillBar() {
 const rageBar = function rageBar() {
     return $('#rage__bar').css('width', `${newGame.rage}%`);
 };
-
 const backTransition = function backTransition() {
     $('#demon-throne').css("opacity", "100");
 };
-
-const playDrink = function playDrink() {
-    drinkFx.play();
-};
-
-const playTrash = function playTrash() {
-    trashFx.play();
-};
-
-const playPractice = function playPractice() {
-    practiceFx.play();
-};
-
 const playSong = function playSong() {
     songFX.play();
 }
 
+/* Event Listeners */
 
-/* Animations */
+$('#trash').on('click', newGame.trashDance);
+$('#practice').on('click', newGame.practiceDance);
+$('#drink').on('click', newGame.beerDance);
+// $("#input-button").on('click', function () {
 
-const practiceDance = function practiceDance() {
-    $('.buddy').addClass('animate__bounce');
-    setTimeout(function () { $('.buddy').removeClass('animate__bounce'); }, 1000);
-};
-
-const trashDance = function trashDance() {
-    $('.buddy').addClass('animate__headShake');
-    setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
-}
-
-const beerDance = function beerDance() {
-    $('.buddy').addClass('animate__pulse');
-    setTimeout(function () { $('.buddy').removeClass('animate__pulse'); }, 1000);
-}
-
-
-
-$('#trash').on('click', trashDance);
-$('#practice').on('click', practiceDance);
-$('#drink').on('click', beerDance);
-
-
-
+// });
+$('#drink').on('click', newGame.playDrink);
+$('#trash').on('click', newGame.playTrash);
+$('#practice').on('click', newGame.playPractice);
+$('#drink').on('click', newGame.drink);
+$('#practice').on('click', newGame.practice);
+$('#trash').on('click', newGame.trash);
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
@@ -235,29 +215,10 @@ $("#input-button").on('click', function () {
     $hippy.css("opacity", "100");
     $("#input-form").remove();
     $("#message").text('Hippy...')
-
+    setTimeout(newGame.startGame, 2000);
 });
 
-$("#input-button").on('click', function () {
-    setTimeout(newGame.startGame, 3000);
-});
-
-
-$('#drink').on('click', playDrink);
-$('#trash').on('click', playTrash);
-$('#practice').on('click', playPractice);
-
-
-$('#drink').on('click', newGame.drink);
-$('#practice').on('click', newGame.practice);
-$('#trash').on('click', newGame.trash);
-
-
-// const hippyDance = function hippyDance() {
-//     $('#hippy').toggleClass('.animate__animated.animate__bounce');
-// }
-
-
+/* Metric Bar Updaters */
 
 setInterval(beerBar, 100);
 setInterval(skillBar, 100);
@@ -266,4 +227,44 @@ setInterval(rageBar, 100);
 
 
 
-/add spin remove/
+
+
+
+
+
+
+
+
+// const echo = function echo() {
+//     console.log('echo');
+// }
+
+// const practiceDance = function practiceDance() {
+//     $('.buddy').addClass('animate__bounce');
+//     setTimeout(function () { $('.buddy').removeClass('animate__bounce'); }, 1000);
+// };
+
+// const trashDance = function trashDance() {
+//     $('.buddy').addClass('animate__headShake');
+//     setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
+// }
+
+// const beerDance = function beerDance() {
+//     $('.buddy').addClass('animate__pulse');
+//     setTimeout(function () { $('.buddy').removeClass('animate__pulse'); }, 1000);
+// }
+
+
+// const playDrink = function playDrink() {
+//     drinkFx.play();
+// };
+
+// const playTrash = function playTrash() {
+//     trashFx.play();
+// };
+
+// const playPractice = function playPractice() {
+//     practiceFx.play();
+// };
+
+
