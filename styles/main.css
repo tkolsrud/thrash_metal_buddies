@@ -21,7 +21,7 @@ body{
     position: absolute;
     height: 300px;
     width: 500px;
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
 }
 
 #quit-rage {
@@ -31,7 +31,7 @@ body{
     position: absolute;
     height: 200px;
     width: 500px;
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
     display: none;
     justify-content: center;
     align-content: center;
@@ -44,7 +44,7 @@ body{
     position: absolute;
     height: 200px;
     width: 500px;
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
     display: none;
     justify-content: center;
     align-content: center;
@@ -57,20 +57,23 @@ body{
     position: absolute;
     height: 200px;
     width: 500px;
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
     display: none;
     justify-content: center;
     align-content: center;
 }
 
-
+.quit p{
+    padding: 10px;
+    padding-left: 25px;
+}
 
 
 
 .field {
     margin-top: 10px;
     padding-top: 10px;
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
     width: 300px;
 }
 
@@ -266,7 +269,7 @@ footer .skill {
 
 
 #name-input {
-    background-color: #221316;
+    background-color: rgb(12, 15, 15);
 }
 
 

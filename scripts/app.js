@@ -8,7 +8,7 @@ let nameInput = null;
 const trashFx = new Audio('https://freesound.org/data/previews/171/171996_112577-lq.mp3');
 const drinkFx = new Audio('https://freesound.org/data/previews/61/61392_792945-lq.mp3');
 const practiceFx = new Audio('https://freesound.org/data/previews/1/1401_838-lq.mp3');
-const songFX = new Audio('./audio/metalsong.mp3');
+const songFX = new Audio('./audio/angelofdeath.mp3');
 
 
 
@@ -86,7 +86,7 @@ const newGame = {
             $('#hippy').addClass('flash');
             $('#hippy').fadeOut(3000);
             setTimeout(function () { $('#metalhead').css('opacity', '100'); }, 1000);
-            $('#message').text('METALHEAD!!!');
+            $('#message').text('Shreds!!!');
             setTimeout(playSong, 500);
             return setTimeout(backTransition, 6000);
         }
@@ -194,6 +194,9 @@ const playSong = function playSong() {
     songFX.play();
 }
 
+const pauseSong = function pauseSong() {
+    songFX.pause();
+}
 /* Event Listeners */
 
 $('#trash').on('click', newGame.trashDance);
@@ -215,7 +218,7 @@ $("#input-button").on('click', function () {
     $hippy.css("transform", "translatey(0%)");
     $hippy.css("opacity", "100");
     $("#input-form").remove();
-    $("#message").text('Hippy...')
+    $("#message").text('is a Hippy...')
     setTimeout(newGame.startGame, 2000);
 });
 
