@@ -24,6 +24,29 @@ const echo = function echo() {
 let ageInput = null;
 let nameInput = null;
 
+const trashFx = new Audio('https://freesound.org/data/previews/171/171996_112577-lq.mp3');
+
+const drinkFx = new Audio('https://freesound.org/data/previews/61/61392_792945-lq.mp3');
+
+const practiceFx = new Audio('https://freesound.org/data/previews/1/1401_838-lq.mp3')
+
+const playDrink = function playDrink() {
+    drinkFx.play();
+};
+
+const playTrash = function playTrash() {
+    trashFx.play();
+};
+
+const playPractice = function playPractice() {
+    practiceFx.play();
+};
+
+$('#drink').on('click', playDrink);
+$('#trash').on('click', playTrash);
+$('#practice').on('click', playPractice);
+
+
 
 /* Game Object */
 
