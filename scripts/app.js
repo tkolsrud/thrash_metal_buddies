@@ -99,19 +99,19 @@ const newGame = {
         return $('#span-age').text(`    ${newGame.age}`);
     },
 
-    // transform() {
-    //     if (newGame.time < 5) {
-    //         newGame.time++;
-    //         console.log(newGame.time);
-    //     } else {
-    //         clearInterval(newGame.transformCounter);
-    //         $('#metalhead').css('opacity', "100");
-    //         $('#hippy').remove();
-    //         $('#message').text('METALHEAD!!!');
-    //         playSong();
-    //         return setTimeout(backTransition, 5000);
-    //     }
-    // },
+    transform() {
+        if (newGame.time < 5) {
+            newGame.time++;
+            console.log(newGame.time);
+        } else {
+            clearInterval(newGame.transformCounter);
+            $('#metalhead').css('opacity', "100");
+            $('#hippy').remove();
+            $('#message').text('METALHEAD!!!');
+            playSong();
+            return setTimeout(backTransition, 5000);
+        }
+    },
 
     // // BUTTON METHODS
     drink() {
@@ -214,13 +214,16 @@ const trashDance = function trashDance() {
     setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
 }
 
+const beerDance = function beerDance() {
+    $('.buddy').addClass('animate__pulse');
+    setTimeout(function () { $('.buddy').removeClass('animate__pulse'); }, 1000);
+}
 
 
 
 $('#trash').on('click', trashDance);
 $('#practice').on('click', practiceDance);
-
-
+$('#drink').on('click', beerDance);
 
 
 
@@ -235,9 +238,9 @@ $("#input-button").on('click', function () {
 
 });
 
-// $("#input-button").on('click', function () {
-//     setTimeout(newGame.startGame, 3000);
-// });
+$("#input-button").on('click', function () {
+    setTimeout(newGame.startGame, 3000);
+});
 
 
 $('#drink').on('click', playDrink);
