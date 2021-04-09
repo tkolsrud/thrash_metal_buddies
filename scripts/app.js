@@ -153,13 +153,6 @@ const newGame = {
         newGame.transformCounter();
     },
 
-    // quit() {
-    //         if (this.beer === 0 || this.chops === 0 || this.rage === 100) {
-    //             console.log(`${newGame.name} quit the band`);
-    //         }
-    //     },
-
-
 };
 
 
@@ -193,18 +186,16 @@ const backTransition = function backTransition() {
 const playSong = function playSong() {
     songFX.play();
 }
-
 const pauseSong = function pauseSong() {
     songFX.pause();
 }
+
+
 /* Event Listeners */
 
 $('#trash').on('click', newGame.trashDance);
 $('#practice').on('click', newGame.practiceDance);
 $('#drink').on('click', newGame.beerDance);
-// $("#input-button").on('click', function () {
-
-// });
 $('#drink').on('click', newGame.playDrink);
 $('#trash').on('click', newGame.playTrash);
 $('#practice').on('click', newGame.playPractice);

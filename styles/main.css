@@ -205,6 +205,8 @@ main .avatar {
 } */
 .btn #drink {
     margin-left: 20px;
+    border: 2px, solid;
+
 }
 
 #hippy {
@@ -297,3 +299,11 @@ footer .skill {
    animation-duration: .01s;
    animation-iteration-count: 1200;
  }
+
+ .btn {
+    max-height: 60px;
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5%;
+}
