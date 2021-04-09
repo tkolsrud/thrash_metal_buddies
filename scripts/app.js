@@ -57,7 +57,7 @@ const newGame = {
             setTimeout(pauseSong, 300);
             return $('#quit-beer').show();
         } else {
-            newGame.beer -= 2;
+            newGame.beer -= 1;
         }
     },
     reduceSkill() {
@@ -69,7 +69,7 @@ const newGame = {
             setTimeout(pauseSong, 300);
             return $('#quit-skill').show();
         } else {
-            newGame.skill -= 2;
+            newGame.skill -= 1;
         }
     },
     increaseRage() {
@@ -107,13 +107,13 @@ const newGame = {
     drink() {
         if (newGame.beer < 100) {
             newGame.beer += 10;
-            newGame.skill -= 2;
+            newGame.skill -= 1;
         }
     },
     practice() {
         if (newGame.skill < 100) {
             newGame.skill += 10;
-            newGame.beer -= 2;
+            newGame.beer -= 1;
         }
     },
     trash() {
