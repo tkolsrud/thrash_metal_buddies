@@ -1,4 +1,4 @@
-console.log("[app.js] is loaded");
+// console.log("[app.js] is loaded");
 
 /* Variables */
 
@@ -19,7 +19,7 @@ const newGame = {
     name: nameInput,
     age: ageInput,
     time: 0,
-    beer: 30,
+    beer: 100,
     skill: 100,
     rage: 0,
 
@@ -90,7 +90,7 @@ const newGame = {
         return $('#span-age').text(`    ${newGame.age}`);
     },
     transform() {
-        if (newGame.time < 5) {
+        if (newGame.time < 40) {
             newGame.time++;
             console.log(newGame.time);
         } else {
