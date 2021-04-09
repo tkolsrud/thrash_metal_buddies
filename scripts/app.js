@@ -21,7 +21,7 @@ const newGame = {
     time: 0,
     beer: 100,
     skill: 100,
-    rage: 0,
+    rage: 80,
 
     gameTimer: null,
     beerTimer: null,
@@ -51,7 +51,9 @@ const newGame = {
     // METRIC ALTERATION METHODS
     reduceBeer() {
         if (newGame.beer <= 0) {
-            clearInterval(newGame.beerCounter);
+            clearInterval(newGame.skillTimer);
+            clearInterval(newGame.beerTimer);
+            clearInterval(newGame.rageTimer);
             return $('#quit-beer').show();
         } else {
             newGame.beer -= 2;
@@ -59,7 +61,9 @@ const newGame = {
     },
     reduceSkill() {
         if (newGame.skill <= 0) {
-            clearInterval(newGame.skillCounter);
+            clearInterval(newGame.skillTimer);
+            clearInterval(newGame.beerTimer);
+            clearInterval(newGame.rageTimer);
             return $('#quit-skill').show();
         } else {
             newGame.skill -= 2;
@@ -67,7 +71,9 @@ const newGame = {
     },
     increaseRage() {
         if (newGame.rage === 100) {
-            clearInterval(newGame.rageCounter);
+            clearInterval(newGame.skillTimer);
+            clearInterval(newGame.beerTimer);
+            clearInterval(newGame.rageTimer);
             return $('#quit-rage').show();
         } else {
             newGame.rage += 1;
@@ -86,9 +92,9 @@ const newGame = {
             $('#hippy').addClass('flash');
             $('#hippy').fadeOut(3000);
             setTimeout(function () { $('#metalhead').css('opacity', '100'); }, 1000);
-            $('#message').text('Shreds!!!');
             setTimeout(playSong, 500);
-            return setTimeout(backTransition, 6000);
+            setTimeout(function () { $('#message').text('Shreds!!!'); }, 4000);
+            return setTimeout(backTransition, 4000);
         }
     },
 
@@ -113,18 +119,18 @@ const newGame = {
 
     //  Button Animations
     practiceDance() {
-        $('.buddy').addClass('animate__bounce');
-        setTimeout(function () { $('.buddy').removeClass('animate__bounce'); }, 1000);
+        $('.buddy').addClass('animate__bounce animate__faster');
+        setTimeout(function () { $('.buddy').removeClass('animate__bounce animate__faster'); }, 1000);
     },
 
     trashDance() {
-        $('.buddy').addClass('animate__headShake');
-        setTimeout(function () { $('.buddy').removeClass('animate__headShake'); }, 1000);
+        $('.buddy').addClass('animate__wobble animate__faster');
+        setTimeout(function () { $('.buddy').removeClass('animate__wobble animate__faster'); }, 1000);
     },
 
     beerDance() {
-        $('.buddy').addClass('animate__pulse');
-        setTimeout(function () { $('.buddy').removeClass('animate__pulse'); }, 1000);
+        $('.buddy').addClass('animate__pulse animate__faster');
+        setTimeout(function () { $('.buddy').removeClass('animate__pulse animate__faster'); }, 1000);
     },
 
     // Sound Effects

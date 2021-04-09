@@ -63,9 +63,10 @@ body{
     align-content: center;
 }
 
-.quit p{
-    padding: 10px;
-    padding-left: 25px;
+.quit > p{
+    justify-content: center;
+    align-content: center;
+    margin-left: 10px;
 }
 
 
@@ -93,11 +94,14 @@ input {
 /* Header */
 
 header {
-    background-color: rgb(16, 20, 20);
     height: 15vh;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    background-image: url('../images/stone.png');
+    background-size: 40vh, 100%;
+    background-position: center center;
+    border-bottom: 10px solid rgb(1, 7, 5);
     
 }
 
@@ -240,6 +244,10 @@ footer {
     display: flex;
     position: absolute;
     z-index: 10;
+    background-image: url('../images/stone.png');
+    background-size: 40vh, 100%;
+    background-position: center center;
+    border-top: 10px solid rgb(19, 8, 8);
 }
 
 footer .beer {
@@ -275,12 +283,6 @@ footer .skill {
 }
 
 
-/* .blackMirror {  
-
-    animation: blackMirror 1 3s linear;
-
-} */
-
 @keyframes flash {
    0%, 50%, 100% {
       opacity: 1;
@@ -290,6 +292,10 @@ footer .skill {
    }
 }
 
+#input-button {
+    margin-top: 20px;
+    margin-left: 10px;
+}
 
 
 
