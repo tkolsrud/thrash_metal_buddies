@@ -2,7 +2,6 @@
 
 /* Variables */
 
-let $hippy = $('#hippy');
 let ageInput = null;
 let nameInput = null;
 const trashFx = new Audio('https://freesound.org/data/previews/171/171996_112577-lq.mp3');
@@ -217,9 +216,9 @@ $('#trash').on('click', newGame.trash);
 $("#input-button").on('click', function () {
     collectAge();
     collectName();
-    $hippy.css("transition", "2s linear")
-    $hippy.css("transform", "translatey(0%)");
-    $hippy.css("opacity", "100");
+    $('#hippy').css("transition", "2s linear")
+    $('#hippy').css("transform", "translatey(0%)");
+    $('#hippy').css("opacity", "100");
     $("#input-form").remove();
     $("#message").text('is a Hippy...')
     setTimeout(newGame.startGame, 2000);
