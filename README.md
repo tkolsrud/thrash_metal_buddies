@@ -1,7 +1,7 @@
 # tamagotchi_project_0
 First SEI project - create a tomagotchi
 
-Project Name: Thrash Metal Pet Game
+Project Name: Super Thrash Metal Buddies!
 
 Objectives:
 - The user will create a pet guitarist. They will feed the guitarist beer, make them practice, and allow them to vent by trashing their dressing room. If any of these metrics are not regulated the guitarist will quit the band.
