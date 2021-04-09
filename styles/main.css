@@ -127,7 +127,7 @@ header .right {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url("http://pavbca.com/walldb/original/f/7/c/51709.jpg");
+    background-image: url("../images/forest.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
