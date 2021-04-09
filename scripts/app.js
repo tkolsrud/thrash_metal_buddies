@@ -19,9 +19,9 @@ const newGame = {
     name: nameInput,
     age: ageInput,
     time: 0,
-    beer: 100,
+    beer: 30,
     skill: 100,
-    rage: 80,
+    rage: 0,
 
     gameTimer: null,
     beerTimer: null,
@@ -54,6 +54,8 @@ const newGame = {
             clearInterval(newGame.skillTimer);
             clearInterval(newGame.beerTimer);
             clearInterval(newGame.rageTimer);
+            clearInterval(newGame.transformTimer);
+            setTimeout(pauseSong, 300);
             return $('#quit-beer').show();
         } else {
             newGame.beer -= 2;
@@ -64,6 +66,8 @@ const newGame = {
             clearInterval(newGame.skillTimer);
             clearInterval(newGame.beerTimer);
             clearInterval(newGame.rageTimer);
+            clearInterval(newGame.transformTimer);
+            setTimeout(pauseSong, 300);
             return $('#quit-skill').show();
         } else {
             newGame.skill -= 2;
@@ -74,6 +78,8 @@ const newGame = {
             clearInterval(newGame.skillTimer);
             clearInterval(newGame.beerTimer);
             clearInterval(newGame.rageTimer);
+            clearInterval(newGame.transformTimer);
+            setTimeout(pauseSong, 300);
             return $('#quit-rage').show();
         } else {
             newGame.rage += 1;
