@@ -156,7 +156,7 @@ const newGame = {
         songFX.play();
     },
 
-    // Start/End Game Methods
+    // Start Game Method
     startGame() {
         newGame.beerCounter();
         newGame.skillCounter();
