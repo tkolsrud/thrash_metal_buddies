@@ -198,9 +198,7 @@ main .avatar {
     margin-right: auto;
 }
 
-/* .progress {
-    background-color: #640d14;
-} */
+
 .btn #drink {
     margin-left: 20px;
     border: 2px, solid;
@@ -269,14 +267,15 @@ footer .skill {
 }
 
 
-
+/* Animation / Misc */
 
 
 #name-input {
     background-color: rgb(12, 15, 15);
 }
 
-
+/* Below animation is from tutorialspoint.com
+url - https://www.tutorialspoint.com/css/css_animation_flash.htm */
 @keyframes flash {
    0%, 50%, 100% {
       opacity: 1;
