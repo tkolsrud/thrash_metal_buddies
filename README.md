@@ -22,3 +22,5 @@ Gameplay:
 - To empty the "Rage" bar, the player will hit the "Trash the Dressing Room" button. The "Trash The Dressing Room Button" will set the "Rage Level" back to zero, while also triggering a sound effect and animation. 
 - If the player is able to keep their pet alive long enough, the pet will undergo a visual transformation. The game continues until one of the metrics trigger's the end of the game.
 
+To Play Thrash Metal Buddies, Click the Link Below:
+https://pages.git.generalassemb.ly/tkolsrud/tamagotchi_project_0/
